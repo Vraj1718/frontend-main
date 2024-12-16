@@ -9,17 +9,20 @@ const AddUser = ({ onUserAdded }) => {
   const handleSubmit = e => {
     e.preventDefault()
     axios
-      .post('/insert', { name, description })
-      .then(response => {
-        console.log('User added:', response.data)
-        alert('User added successfully!')
-        // Clear the form
-        setName('')
-        setDescription('')
-        // Trigger parent component refresh
-        onUserAdded()
+      .post('https://frontend-main-ei1o.onrender.com/insert', {
+        name,
+        description,
       })
-      .catch(error => console.error('Error adding user:', error))
+      .then((response) => {
+        console.log('User added:', response.data);
+        alert('User added successfully!');
+        // Clear the form
+        setName('');
+        setDescription('');
+        // Trigger parent component refresh
+        onUserAdded();
+      })
+      .catch((error) => console.error('Error adding user:', error));
   }
 
   return (

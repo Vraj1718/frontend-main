@@ -6,9 +6,10 @@ const UsersList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('/data')
-      .then(response => setUsers(response.data))
-      .catch(error => console.error('Error fetching users:', error));
+    axios
+      .get('https://frontend-main-ei1o.onrender.com/data')
+      .then((response) => setUsers(response.data))
+      .catch((error) => console.error('Error fetching users:', error));
   }, []);
 
   return (
