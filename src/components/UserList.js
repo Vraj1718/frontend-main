@@ -6,7 +6,7 @@ const UsersList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('https://backend-zlx0.onrender.com/data')
+    axios.get('/data')
       .then(response => setUsers(response.data))
       .catch(error => console.error('Error fetching users:', error));
   }, []);
@@ -30,7 +30,7 @@ const UsersList = () => {
               <td>
               {user.name}
               </td>
-           
+
               <td> {user.description}</td>
             </tr>
           ))}
